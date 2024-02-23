@@ -13,13 +13,12 @@ File or Folder | Purpose
 `readme.md` | this getting started guide
 
 
-## Next Steps
+- `Mail trigger From CAP`: To dispatch an email from a CAP application, we leveraged the SAP Cloud SDK mail client. In doing so, we established a designated destination within the SAP Business Technology Platform (BTP) account. Through the configured send mail settings, we successfully transmitted the email.
+Below screenshots for Mail Delivery and teh destinaton.
 
-- Open a new terminal and run `cds watch` 
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
+    **Destination**:
+    ![alt text](./images/MaildestinationScreenshot.png)
 
+    **Mail Delivery**:
+    ![alt text](./images/MailScreenshot.png)
 
-## Learn More
-
-Learn more at https://cap.cloud.sap/docs/get-started/.
