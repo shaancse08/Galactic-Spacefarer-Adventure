@@ -10,9 +10,9 @@ POST http://localhost:4004/GalacticSRV/GalacticSpacefarer HTTP/1.1
 Content-Type: application/json
 
     {
-      "name": "Black Widow",
-      "spacefarerNickName": "BW",
-      "email": "BlackWidow@gmail.com",
+      "name": "Avik Saha",
+      "spacefarerNickName": "AS",
+      "email": "shaancse08@gmail.com",
       "stardustCollection": 101,
       "wormholeNavigationSkill": 5,
       "originPlanet": "Xandar",

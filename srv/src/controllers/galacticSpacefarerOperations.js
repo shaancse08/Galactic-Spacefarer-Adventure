@@ -1,3 +1,4 @@
+const { sendMail, MailConfig } = require("@sap-cloud-sdk/mail-client");
 /**
  * Below method will do the validation before creating the Spacefarer
  * SpaceFarer needs to have 100 StarDustCollection To embark the journey
@@ -25,6 +26,18 @@ const onBeforeGalacicSpaceCreate = async (req) => {
   }
 };
 
+const onAfterGalacticSpaceFarerCreation = (req) => {
+  const { email } = req;
+  const mailConfig = {
+    from: "shaancse08@gmail.com",
+    to: email,
+    subject: "Your Space Journey Begins!",
+    text: "We are thrilled to inform you that your journey to becoming a spacefarer has officially begun! This is an exciting time, and we are delighted to have you on board for this extraordinary adventure.",
+  };
+  sendMail({ destinationName: 'GalacticMailTransfer' }, [mailConfig])
+};
+
 module.exports = {
   onBeforeGalacicSpaceCreate,
+  onAfterGalacticSpaceFarerCreation,
 };
