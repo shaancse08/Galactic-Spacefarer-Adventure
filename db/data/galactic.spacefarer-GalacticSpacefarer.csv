@@ -1,0 +1,6 @@
+ID,name,spacefarerNickName,email,stardustCollection,wormholeNavigationSkill,originPlanet,spacesuitColor,department_ID,position_ID
+e33b5cb8-652d-45c8-a23e-359dc28eaa0c,Thor,Thor,thor@gmail.com,Carbon,power of teleportation,Earth,RedishBlack,257ed02a-88cc-41f6-a1a0-0972fdfbecba,9589ac63-77c3-4745-8a9d-aa944c66ce30
+47dbe1c3-95aa-4322-90c5-e2be4d78a0a8,Star-Lord,StarLord,starlord@gmail.com,Nitrogen,space-time manipulation,Asgard,White,257ed02a-88cc-41f6-a1a0-0972fdfbecba,9589ac63-77c3-4745-8a9d-aa944c66ce30
+ac56dcc6-ff39-4d13-b161-d82e110285c3,Captain America,CP,CP@gmail.com,Oxygen,piloting skills,Sakaar,Red,87eb666e-d467-4a53-bc57-793072d369a2,7689a670-cbe9-431a-b88d-a33ea9f8a513
+87842d93-cc11-485e-8a9c-31315c15cfb3,Black Widow,BW,BW@gmail.com,silicon,space pilot and adventurer,Xandar,Black,10b034d9-6b72-4f42-bdbd-956d6d485161,fdc32c72-ef5f-460c-b567-3920bea13e0c
+e91ff619-ff06-4912-9a7a-5669924352c8,Hulk,Hulk,H@gmail.com,iron,superluminal speed,Knowhere,Green,10b034d9-6b72-4f42-bdbd-956d6d485161,91972f85-4ac3-4bb0-bffe-a54591008fe2

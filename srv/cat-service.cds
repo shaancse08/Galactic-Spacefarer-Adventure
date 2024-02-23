@@ -1,5 +1,11 @@
-using my.bookshop as my from '../db/data-model';
+using galactic.spacefarer as spacefarer from '../db/data-model';
 
-service CatalogService {
-    @readonly entity Books as projection on my.Books;
+@path: '/GalacticSRV'
+service GalacticService {
+
 }
+
+
+
+
+
