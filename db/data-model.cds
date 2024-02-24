@@ -6,15 +6,17 @@ using {reusable.validations as types} from './reusableTypesandValidations';
 
 @assert.unique: {email: [email]}
 entity GalacticSpacefarer : cuid {
-  name                    : String;
-  spacefarerNickName      : String(10);
-  email                   : types.email;
-  stardustCollection      : Integer;
-  wormholeNavigationSkill : Integer;
-  originPlanet            : String;
-  spacesuitColor          : String;
-  department              : Composition of  Department;
-  position                : Association to Position;
+  name                     : String      @Core.Immutable;
+  spacefarerNickName       : String(100)  @Core.Immutable;
+  email                    : types.email @Core.Immutable;
+  stardustCollection       : Integer;
+  stardustCollectionStatus : String      @readonly;
+  wormholeNavigationSkill  : Integer;
+  originPlanet             : String(15)      @Core.Immutable;
+  spacesuitColor           : String      @Core.Immutable;
+  imageUrl                 : String;
+  department               : Composition of Department;
+  position                 : Association to Position;
 }
 
 
@@ -27,4 +29,3 @@ entity Department : cuid {
 entity Position : cuid {
   currentPosition : String;
 }
-

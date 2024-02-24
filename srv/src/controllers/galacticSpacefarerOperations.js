@@ -19,6 +19,14 @@ const onBeforeGalacicSpaceCreate = async (req) => {
     });
   }
 
+  if (stardustCollection < 350) {
+    req.data.stardustCollectionStatus = 1;
+  } else if (stardustCollection < 500) {
+    req.data.stardustCollectionStatus = 2;
+  } else {
+    req.data.stardustCollectionStatus = 3;
+  }
+
   if (aEligiblePlanets.includes(originPlanet)) {
     const newSkill = wormholeNavigationSkill + 2;
     req.data.stardustCollection = stardustCollection + 800;
@@ -34,10 +42,11 @@ const onAfterGalacticSpaceFarerCreation = (req) => {
     subject: "Your Space Journey Begins!",
     text: "We are thrilled to inform you that your journey to becoming a spacefarer has officially begun! This is an exciting time, and we are delighted to have you on board for this extraordinary adventure.",
   };
-  sendMail({ destinationName: 'GalacticMailTransfer' }, [mailConfig])
+  sendMail({ destinationName: "GalacticMailTransfer" }, [mailConfig]);
 };
+
 
 module.exports = {
   onBeforeGalacicSpaceCreate,
-  onAfterGalacticSpaceFarerCreation,
+  onAfterGalacticSpaceFarerCreation
 };
