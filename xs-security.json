@@ -3,16 +3,8 @@
   "tenant-mode": "dedicated",
   "scopes": [
     {
-      "name": "$XSAPPNAME.Earth",
-      "description": "Earth"
-    },
-    {
-      "name": "$XSAPPNAME.Wakanda",
-      "description": "Wakanda Planet"
-    },
-    {
-      "name": "$XSAPPNAME.Asgard",
-      "description": "Asgard"
+      "name": "$XSAPPNAME.PlanetUser",
+      "description": "Planet Users"
     }
   ],
   "attributes": [
@@ -24,9 +16,9 @@
   ],
   "role-templates": [
     {
-      "name": "Earth",
+      "name": "PlanetUser",
       "description": "Role Template For Earth People",
-      "scope-references": ["$XSAPPNAME.Earth"],
+      "scope-references": ["$XSAPPNAME.PlanetUser"],
       "attribute-references": ["Planet"]
     }
   ],

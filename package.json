@@ -40,7 +40,7 @@
             "password": "initial",
             "ID": "earth@sap.com",
             "roles": [
-              "Earth"
+              "PlanetUser"
             ],
             "attr": {"Planet": "Earth"}
           },
@@ -48,7 +48,7 @@
             "password": "initial",
             "ID": "asgard@sap.com",
             "roles": [
-              "Asgard"
+              "PlanetUser"
             ],
             "attr": {"Planet": "Asgard"}
           },
@@ -56,7 +56,7 @@
             "password": "initial",
             "ID": "wakanda@sap.com",
             "roles": [
-              "Wakanda"
+              "PlanetUser"
             ],
             "attr": {"Planet": "Wakanda"}
           }                    
