@@ -19,8 +19,9 @@ annotate service.GalacticSpacefarer with @(UI: {
             Value: email,
         },
         {
-            $Type: 'UI.DataField',
-            Value: stardustCollection,
+            $Type      : 'UI.DataField',
+            Value      : stardustCollection,
+            Criticality: stardustCollectionStatus,
         },
         {
             $Type: 'UI.DataField',
@@ -35,12 +36,38 @@ annotate service.GalacticSpacefarer with @(UI: {
             Value: originPlanet,
         },
     ],
-    HeaderInfo  : {
-        $Type : 'UI.HeaderInfoType',
-        TypeName: '{@i18n>SpaceFarer}',
-        TypeNamePlural : '{@i18n>SpaceFarers}'
+    HeaderInfo     : {
+        $Type         : 'UI.HeaderInfoType',
+        TypeName      : '{@i18n>SpaceFarer}',
+        TypeNamePlural: '{@i18n>SpaceFarers}',
+        Title         : {
+            $Type: 'UI.DataField',
+            Value: name
+        },
+        ImageUrl      : imageUrl
     },
+});
 
+annotate service.Department with @(UI.FieldGroup #department: {
+    $Type: 'UI.FieldGroupType',
+    Data : [
+        {
+            $Type: 'UI.DataField',
+            Value: name
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: description
+        }
+    ]
+});
+
+annotate service.Position with @(UI.FieldGroup #position: {
+    $Type: 'UI.FieldGroupType',
+    Data : [{
+        $Type: 'UI.DataField',
+        Value: currentPosition
+    }]
 });
 
 
@@ -85,10 +112,24 @@ annotate service.GalacticSpacefarer with @(
             },
         ],
     },
-    UI.Facets                     : [{
-        $Type : 'UI.ReferenceFacet',
-        ID    : 'GeneratedFacet1',
-        Label : '{@i18n>GeneralInformation}',
-        Target: '@UI.FieldGroup#GeneratedGroup1'
-    }]
+    UI.Facets                     : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID    : 'GeneratedFacet1',
+            Label : '{@i18n>GeneralInformation}',
+            Target: '@UI.FieldGroup#GeneratedGroup1'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID    : 'GeneratedFacet2',
+            Label : '{@i18n>DepartmentDetails}',
+            Target: 'department/@UI.FieldGroup#department',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID    : 'GeneratedFacet3',
+            Label : '{@i18n>PositionDetails}',
+            Target: 'position/@UI.FieldGroup#position',
+        }
+    ]
 );
