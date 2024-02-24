@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+        <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="GalacticService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="GalacticSpacefarer" EntityType="GalacticService.GalacticSpacefarer">
+                    <NavigationPropertyBinding Path="department" Target="Department"/>
+                    <NavigationPropertyBinding Path="position" Target="Position"/>
+                </EntitySet>
+                <EntitySet Name="Department" EntityType="GalacticService.Department"/>
+                <EntitySet Name="Position" EntityType="GalacticService.Position"/>
+            </EntityContainer>
+            <EntityType Name="GalacticSpacefarer">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="spacefarerNickName" Type="Edm.String" MaxLength="10"/>
+                <Property Name="email" Type="Edm.String" MaxLength="100"/>
+                <Property Name="stardustCollection" Type="Edm.Int32"/>
+                <Property Name="wormholeNavigationSkill" Type="Edm.Int32"/>
+                <Property Name="originPlanet" Type="Edm.String"/>
+                <Property Name="spacesuitColor" Type="Edm.String"/>
+                <NavigationProperty Name="department" Type="GalacticService.Department">
+                    <ReferentialConstraint Property="department_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="department_ID" Type="Edm.Guid"/>
+                <NavigationProperty Name="position" Type="GalacticService.Position">
+                    <ReferentialConstraint Property="position_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="position_ID" Type="Edm.Guid"/>
+            </EntityType>
+            <EntityType Name="Department">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="description" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Position">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="currentPosition" Type="Edm.String"/>
+            </EntityType>
+            <Annotations Target="GalacticService.GalacticSpacefarer/email">
+                <Annotation Term="Validation.Pattern" String="^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})$"/>
+            </Annotations>
+            <Annotations Target="GalacticService.EntityContainer/Department">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="GalacticService.EntityContainer/Position">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
