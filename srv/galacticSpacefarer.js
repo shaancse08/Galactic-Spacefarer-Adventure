@@ -1,6 +1,6 @@
 const cds = require("@sap/cds");
 const {
-  onBeforeGalacicSpaceCreate, onAfterGalacticSpaceFarerCreation,
+  onBeforeGalacicSpaceCreate, onAfterGalacticSpaceFarerCreation
 } = require("./src/controllers/galacticSpacefarerOperations");
 
 module.exports = cds.service.impl(async (srv) => {

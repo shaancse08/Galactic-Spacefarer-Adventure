@@ -45,7 +45,8 @@ const onAfterGalacticSpaceFarerCreation = (req) => {
   sendMail({ destinationName: "GalacticMailTransfer" }, [mailConfig]);
 };
 
+
 module.exports = {
   onBeforeGalacicSpaceCreate,
-  onAfterGalacticSpaceFarerCreation,
+  onAfterGalacticSpaceFarerCreation
 };
