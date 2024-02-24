@@ -7,12 +7,12 @@ using {reusable.validations as types} from './reusableTypesandValidations';
 @assert.unique: {email: [email]}
 entity GalacticSpacefarer : cuid {
   name                     : String      @Core.Immutable;
-  spacefarerNickName       : String(100)  @Core.Immutable;
+  spacefarerNickName       : String(100) @Core.Immutable;
   email                    : types.email @Core.Immutable;
   stardustCollection       : Integer;
   stardustCollectionStatus : String      @readonly;
   wormholeNavigationSkill  : Integer;
-  originPlanet             : String(15)      @Core.Immutable;
+  originPlanet             : String(15)  @Core.Immutable;
   spacesuitColor           : String      @Core.Immutable;
   imageUrl                 : String;
   department               : Composition of Department;

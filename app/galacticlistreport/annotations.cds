@@ -77,37 +77,30 @@ annotate service.GalacticSpacefarer with @(
         Data : [
             {
                 $Type: 'UI.DataField',
-                Label: 'name',
                 Value: name,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'spacefarerNickName',
                 Value: spacefarerNickName,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'email',
                 Value: email,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'stardustCollection',
                 Value: stardustCollection,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'wormholeNavigationSkill',
                 Value: wormholeNavigationSkill,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'originPlanet',
                 Value: originPlanet,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'spacesuitColor',
                 Value: spacesuitColor,
             },
         ],
