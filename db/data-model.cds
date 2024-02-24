@@ -13,7 +13,7 @@ entity GalacticSpacefarer : cuid {
   wormholeNavigationSkill : Integer;
   originPlanet            : String;
   spacesuitColor          : String;
-  department              : Association to Department;
+  department              : Composition of  Department;
   position                : Association to Position;
 }
 
