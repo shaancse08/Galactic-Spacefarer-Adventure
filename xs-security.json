@@ -1,0 +1,37 @@
+{
+  "xsappname": "Galactic-Spacefarer-Adventure-auth-xs-app",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Earth",
+      "description": "Earth"
+    },
+    {
+      "name": "$XSAPPNAME.Wakanda",
+      "description": "Wakanda Planet"
+    },
+    {
+      "name": "$XSAPPNAME.Asgard",
+      "description": "Asgard"
+    }
+  ],
+  "attributes": [
+    {
+      "name": "Planet",
+      "description": "Planet",
+      "valueType": "string"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Earth",
+      "description": "Role Template For Earth People",
+      "scope-references": ["$XSAPPNAME.Earth"],
+      "attribute-references": ["Planet"]
+    }
+  ],
+  "oauth2-configuration": {
+    "token-validity": 3600,
+    "redirect-uris": ["https://*/**"]
+  }
+}

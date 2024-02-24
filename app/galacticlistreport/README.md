@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Fri Feb 23 2024 23:30:20 GMT+0530 (India Standard Time)|
+|**Generation Date and Time**<br>Sat Feb 24 2024 16:02:29 GMT+0530 (India Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.11.4|
 |**Generation Platform**<br>Visual Studio Code|
@@ -12,7 +12,7 @@
 |**Application Title**<br>Galactic List Report|
 |**Namespace**<br>com.app|
 |**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.121.0|
+|**UI5 Version**<br>1.120.8|
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
