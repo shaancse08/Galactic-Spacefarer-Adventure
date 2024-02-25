@@ -1,0 +1,38 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+>
+    <VBox
+        id="idDepartmentVBox"
+        class="sapUiSmallMargin"
+    >
+        <f:SimpleForm
+            id="idDepartmentForm"
+            editable="false"
+            layout="ColumnLayout"
+            columnsM="2"
+            columnsL="3"
+            columnsXL="4"
+        >
+            <Label
+                id="_IDGenLabel8"
+                text="{i18n>Name}"
+            />
+            <Text
+                id="_IDGenText8"
+                text="{department/name}"
+                visible="{AppControl>/isEditMode}"
+            />
+            <Label
+                id="_IDGenLabel9"
+                text="{i18n>Description}"
+            />
+            <Text
+                id="_IDGenText9"
+                text="{department/description}"
+            />
+        </f:SimpleForm>
+    </VBox>
+</core:FragmentDefinition>

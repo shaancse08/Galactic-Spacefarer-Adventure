@@ -45,79 +45,10 @@
                         id="idGeneralInformationSubSection"
                     >
                         <uxap:blocks>
-                            <VBox
-                                id="_IDGenVBox1"
-                                class="sapUiSmallMargin"
-                            >
-                                <f:SimpleForm
-                                    id="SimpleFormDisplay354wideDual"
-                                    editable="false"
-                                    layout="ColumnLayout"
-                                    columnsM="2"
-                                    columnsL="3"
-                                    columnsXL="4"
-                                >
-                                    <f:content>
-                                        <Label
-                                            id="_IDGenLabel1"
-                                            text="{i18n>Name}"
-                                        />
-                                        <Text
-                                            id="_IDGenText1"
-                                            text="{name}"
-                                        />
-                                        <Label
-                                            id="_IDGenLabel2"
-                                            text="{i18n>spacefarerNickName}"
-                                        />
-                                        <Text
-                                            id="_IDGenText2"
-                                            text="{spacefarerNickName}"
-                                        />
-                                        <Label
-                                            id="_IDGenLabel3"
-                                            text="{i18n>stardustCollection}"
-                                        />
-                                        <Text
-                                            id="_IDGenText3"
-                                            text="{stardustCollection}"
-                                        />
-                                        <Label
-                                            id="_IDGenLabel7"
-                                            text="{i18n>spacesuitColor}"
-                                        />
-                                        <Text
-                                            id="_IDGenText7"
-                                            text="{spacesuitColor}"
-                                        />
-
-                                        <Label
-                                            id="_IDGenLabel4"
-                                            text="{i18n>stardustCollectionStatus}"
-                                        />
-                                        <Text
-                                            id="_IDGenText4"
-                                            text="{stardustCollectionStatus}"
-                                        />
-                                        <Label
-                                            id="_IDGenLabel5"
-                                            text="{i18n>wormholeNavigationSkill}"
-                                        />
-                                        <Text
-                                            id="_IDGenText5"
-                                            text="{wormholeNavigationSkill}"
-                                        />
-                                        <Label
-                                            id="_IDGenLabel6"
-                                            text="{i18n>OriginPlanet}"
-                                        />
-                                        <Text
-                                            id="_IDGenText6"
-                                            text="{originPlanet/name}"
-                                        />
-                                    </f:content>
-                                </f:SimpleForm>
-                            </VBox>
+                            <core:Fragment
+                                type="XML"
+                                fragmentName="com.app.galacticadmin.fragments.GeneralInformation"
+                            />
                         </uxap:blocks>
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
@@ -129,31 +60,12 @@
             >
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection id="idDepartmentSubsection">
-                        <f:SimpleForm
-                            id="idDepartmentForm"
-                            editable="false"
-                            layout="ColumnLayout"
-                            columnsM="2"
-                            columnsL="3"
-                            columnsXL="4"
-                        >
-                            <Label
-                                id="_IDGenLabel8"
-                                text="{i18n>Name}"
+                        <uxap:blocks>
+                            <core:Fragment
+                                type="XML"
+                                fragmentName="com.app.galacticadmin.fragments.Department"
                             />
-                            <Text
-                                id="_IDGenText8"
-                                text="{department/name}"
-                            />
-                            <Label
-                                id="_IDGenLabel9"
-                                text="{i18n>Description}"
-                            />
-                            <Text
-                                id="_IDGenText9"
-                                text="{department/description}"
-                            />
-                        </f:SimpleForm>
+                        </uxap:blocks>
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
             </uxap:ObjectPageSection>
@@ -164,23 +76,10 @@
             >
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection id="idPositionSubsection">
-                        <f:SimpleForm
-                            id="idPositionForm"
-                            editable="false"
-                            layout="ColumnLayout"
-                            columnsM="2"
-                            columnsL="3"
-                            columnsXL="4"
-                        >
-                            <Label
-                                id="_IDGenLabel10"
-                                text="{i18n>CurrentPosition}"
-                            />
-                            <Text
-                                id="_IDGenText10"
-                                text="{position/currentPosition}"
-                            />
-                        </f:SimpleForm>
+                        <core:Fragment
+                            type="XML"
+                            fragmentName="com.app.galacticadmin.fragments.Position"
+                        />
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
             </uxap:ObjectPageSection>

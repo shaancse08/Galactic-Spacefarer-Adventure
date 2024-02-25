@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+>
+    <VBox
+        id="idPositionVBox"
+        class="sapUiSmallMargin"
+    >
+        <f:SimpleForm
+            id="idPositionForm"
+            editable="false"
+            layout="ColumnLayout"
+            columnsM="2"
+            columnsL="3"
+            columnsXL="4"
+        >
+            <Label
+                id="_IDGenLabel10"
+                text="{i18n>CurrentPosition}"
+            />
+            <Text
+                id="_IDGenText10"
+                text="{position/currentPosition}"
+            />
+        </f:SimpleForm>
+    </VBox>
+</core:FragmentDefinition>

@@ -24,6 +24,10 @@
           "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
         }
+      },
+      "AppControl": {
+        "uri": "data/AppControl.json",
+        "type": "JSON"
       }
     }
   },
@@ -78,7 +82,11 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
-      }
+      },
+      "AppControl": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "AppControl"
+    }      
     },
     "resources": {
       "css": [
@@ -101,17 +109,13 @@
         {
           "name": "RouteHome",
           "pattern": ":?query:",
-          "target": [
-            "TargetHome"
-          ]
+          "target": ["TargetHome"]
         },
         {
           "name": "RouteDetails",
           "pattern": "SpaceFarer/{id}",
-          "target": [
-            "TargetDetails"
-          ]
-        }        
+          "target": ["TargetDetails"]
+        }
       ],
       "targets": {
         "TargetHome": {
@@ -127,7 +131,7 @@
           "clearControlAggregation": false,
           "viewId": "Details",
           "viewName": "Details"
-        }        
+        }
       }
     },
     "rootView": {
