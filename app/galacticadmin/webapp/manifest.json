@@ -104,7 +104,14 @@
           "target": [
             "TargetHome"
           ]
-        }
+        },
+        {
+          "name": "RouteDetails",
+          "pattern": "SpaceFarer/{id}",
+          "target": [
+            "TargetDetails"
+          ]
+        }        
       ],
       "targets": {
         "TargetHome": {
@@ -113,7 +120,14 @@
           "clearControlAggregation": false,
           "viewId": "Home",
           "viewName": "Home"
-        }
+        },
+        "TargetDetails": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Details",
+          "viewName": "Details"
+        }        
       }
     },
     "rootView": {
