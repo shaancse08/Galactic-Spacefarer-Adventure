@@ -8,27 +8,76 @@
   "dependencies": {
     "@sap-cloud-sdk/mail-client": "^3.12.0",
     "@sap/cds": "^7",
-    "express": "^4"
+    "@sap/cds-hana": "^2",
+    "@sap/xssec": "^3",
+    "express": "^4",
+    "passport": "^0"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
-    "@sap/ux-specification": "^1.120.4"
+    "@sap/cds-dk": "^7",
+    "@sap/ux-specification": "^1.120.4",
+    "rimraf": "^3.0.2"
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-galacticlistreport": "cds watch --open galacticlistreport/webapp/index.html?sap-ui-xx-viewCache=false"
-  },
-  "cds": {
-    "requires": {
-      "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "url": "db.sqlite"
-        }
-      }
-    }
+    "watch-galacticlistreport": "cds watch --open galacticlistreport/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy undefined --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
   },
   "sapux": [
     "app/galacticlistreport"
-  ]
+  ],
+  "cds": {
+    "fiori": {
+      "bypass_draft": true
+    },
+    "requires": {
+      "db": "sqlite",
+      "destinations": true,
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "earth@sap.com": {
+            "password": "initial",
+            "ID": "earth@sap.com",
+            "roles": [
+              "PlanetUser"
+            ],
+            "attr": {
+              "Planet": "Earth"
+            }
+          },
+          "asgard@sap.com": {
+            "password": "initial",
+            "ID": "asgard@sap.com",
+            "roles": [
+              "PlanetUser"
+            ],
+            "attr": {
+              "Planet": "Asgard"
+            }
+          },
+          "wakanda@sap.com": {
+            "password": "initial",
+            "ID": "wakanda@sap.com",
+            "roles": [
+              "PlanetUser"
+            ],
+            "attr": {
+              "Planet": "Wakanda"
+            }
+          },
+          "admin@sap.com": {
+            "password": "initial",
+            "ID": "admin@sap.com",
+            "roles": [
+              "Admin"
+            ]
+          }
+        }
+      }
+    }
+  }
 }

@@ -33,7 +33,8 @@ annotate service.GalacticSpacefarer with @(UI: {
         },
         {
             $Type: 'UI.DataField',
-            Value: originPlanet,
+            Label: '{@i18n>OriginPlanet}',
+            Value: originPlanet.name,
         },
     ],
     HeaderInfo     : {
@@ -77,37 +78,31 @@ annotate service.GalacticSpacefarer with @(
         Data : [
             {
                 $Type: 'UI.DataField',
-                Label: 'name',
                 Value: name,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'spacefarerNickName',
                 Value: spacefarerNickName,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'email',
                 Value: email,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'stardustCollection',
                 Value: stardustCollection,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'wormholeNavigationSkill',
                 Value: wormholeNavigationSkill,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'originPlanet',
-                Value: originPlanet,
+                Label: '{@i18n>OriginPlanet}',
+                Value: originPlanet.name,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'spacesuitColor',
                 Value: spacesuitColor,
             },
         ],

@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.11.4",
-      "toolsId": "6063fc27-906c-4d6c-a9d8-32a135fa4350"
+      "toolsId": "730e8dae-c7a2-43ec-8d29-d1884167afe9"
     },
     "dataSources": {
       "mainService": {
@@ -23,6 +23,20 @@
           "annotations": [],
           "localUri": "localService/metadata.xml",
           "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "GalacticListReport-Display": {
+          "semanticObject": "GalacticListReport",
+          "action": "Display",
+          "title": "{{flpTitle}}",
+          "subTitle": "{{flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
         }
       }
     }
@@ -46,7 +60,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.121.0",
+      "minUI5Version": "1.120.8",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
