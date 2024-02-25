@@ -1,0 +1,45 @@
+<mvc:View
+    xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+    xmlns:smarttable="sap.ui.comp.smarttable"
+    xmlns:f="sap.f"
+    controllerName="com.app.galacticadmin.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    height="100%"
+    xmlns="sap.m"
+>
+    <Page id="idAdminPage">
+        <smartfilterbar:SmartFilterBar
+            id="idFilterBarForSpacefarer"
+            entitySet="GalacticSpacefarer"
+            useToolbar="false"
+        />
+
+        <smarttable:SmartTable
+            id="idAdminpageListReport"
+            tableType="ResponsiveTable"
+            entitySet="GalacticSpacefarer"
+            header="{i18n>Galactic Spacefarer}"
+            showRowCount="true"
+            smartFilterId="idFilterBarForSpacefarer"
+            enableAutoBinding="true"
+            enableExport="true"
+        >
+            <Table
+                id="idTableConfigChange"
+                mode="SingleSelectMaster"
+                alternateRowColors="true"
+                growing="true"
+                growingThreshold="20"
+                growingScrollToLoad="true"
+                itemPress=".onTableItemSelect"
+            >
+                <items>
+                    <ColumnListItem
+                        id="idColumnListConfigChange"
+                        type="Navigation"
+                    />
+                </items>
+            </Table>
+        </smarttable:SmartTable>
+    </Page>
+</mvc:View>

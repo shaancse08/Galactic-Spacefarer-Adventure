@@ -47,12 +47,10 @@ annotate GalacticService.GalacticSpacefarer with {
 };
 
 
-annotate GalacticAdminService.GalacticSpacefarer with @(restrict: [
-    {
-        grant: '*',
-        to   : 'Admin'
-    }
-]);
+annotate GalacticAdminService.GalacticSpacefarer with @(restrict: [{
+    grant: '*',
+    to   : 'Admin'
+}]);
 
 annotate GalacticAdminService.GalacticSpacefarer with {
     name                     @title: '{i18n>Name}';
@@ -64,3 +62,42 @@ annotate GalacticAdminService.GalacticSpacefarer with {
     spacesuitColor           @title: '{i18n>SpaceSuitColor}';
     stardustCollectionStatus @title: '{i18n>StarDustCollectionStatus}';
 };
+
+annotate GalacticAdminService.GalacticSpacefarer with @(UI: {
+    SelectionFields: [
+        email,
+        spacesuitColor
+    ],
+    LineItem       : [
+        {
+            $Type: 'UI.DataField',
+            Value: name,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: spacefarerNickName,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: email,
+        },
+        {
+            $Type      : 'UI.DataField',
+            Value      : stardustCollection,
+            Criticality: stardustCollectionStatus,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: wormholeNavigationSkill,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: spacesuitColor,
+        },
+        {
+            $Type: 'UI.DataField',
+            Label: 'Origin Planet',
+            Value: originPlanet.name,
+        },
+    ]
+});
