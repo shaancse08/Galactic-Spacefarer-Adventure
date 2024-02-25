@@ -4,7 +4,7 @@ using galactic.spacefarer as spacefarer from '../db/data-model';
 service GalacticService @(requires: 'authenticated-user') {
     @(restrict: [{
         grant: ['*'],
-        where: 'originPlanet = $user.Planet'
+        where: 'originPlanet.name = $user.Planet'
     }])
     entity GalacticSpacefarer as projection on spacefarer.GalacticSpacefarer;
 
@@ -12,4 +12,6 @@ service GalacticService @(requires: 'authenticated-user') {
 
     @readonly
     entity Position           as projection on spacefarer.Position;
+
+    entity Planet as projection on spacefarer.Planet;
 }

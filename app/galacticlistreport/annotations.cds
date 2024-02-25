@@ -33,7 +33,8 @@ annotate service.GalacticSpacefarer with @(UI: {
         },
         {
             $Type: 'UI.DataField',
-            Value: originPlanet,
+            Label: '{@i18n>OriginPlanet}',
+            Value: originPlanet.name,
         },
     ],
     HeaderInfo     : {
@@ -97,7 +98,8 @@ annotate service.GalacticSpacefarer with @(
             },
             {
                 $Type: 'UI.DataField',
-                Value: originPlanet,
+                Label: '{@i18n>OriginPlanet}',
+                Value: originPlanet.name,
             },
             {
                 $Type: 'UI.DataField',

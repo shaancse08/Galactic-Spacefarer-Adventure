@@ -12,7 +12,7 @@ entity GalacticSpacefarer : cuid {
   stardustCollection       : Integer;
   stardustCollectionStatus : String      @readonly;
   wormholeNavigationSkill  : Integer;
-  originPlanet             : String(15)  @Core.Immutable;
+  originPlanet             : Association to Planet;
   spacesuitColor           : String      @Core.Immutable;
   imageUrl                 : String;
   department               : Composition of Department;
@@ -28,4 +28,8 @@ entity Department : cuid {
 
 entity Position : cuid {
   currentPosition : String;
+}
+
+entity Planet : cuid {
+  name : String @Core.Immutable;
 }
