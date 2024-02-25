@@ -6,12 +6,15 @@ const { sendMail, MailConfig } = require("@sap-cloud-sdk/mail-client");
  * Skill which is maximum of 5 and 800 points of StarDustCollections
  * @param {*} req Will be provided by the Framework
  */
-const onBeforeGalacicSpaceCreate = async (req) => {
-  const { stardustCollection, wormholeNavigationSkill, originPlanet } =
+const onBeforeGalacicSpaceFarerUpdate = (req) => {
+  // Getting teh Event as this method for both Create and Update
+  const sEvent = req.event;
+  // Getting the Relevent Data from the Request
+  const { stardustCollection, wormholeNavigationSkill, originPlanet_ID } =
       req.data,
-    aEligiblePlanets = ["Earth", "Asgard", "Wakanda"];
-
-  if (stardustCollection < 100) {
+    aEligiblePlanets = ["fdc3e7d9-73a0-4f9c-a508-481b6e579fd6", "e794898c-f49e-4ae0-b247-28ad57528cc5"];
+  // If Stardust collection is less than 100 then not eligible
+  if (stardustCollection < 100 && sEvent === "CREATE") {
     req.error({
       code: "400",
       message:
@@ -19,6 +22,7 @@ const onBeforeGalacicSpaceCreate = async (req) => {
     });
   }
 
+  // Setting up the Stardust Collection Status Value
   if (stardustCollection < 350) {
     req.data.stardustCollectionStatus = 1;
   } else if (stardustCollection < 500) {
@@ -27,26 +31,40 @@ const onBeforeGalacicSpaceCreate = async (req) => {
     req.data.stardustCollectionStatus = 3;
   }
 
-  if (aEligiblePlanets.includes(originPlanet)) {
-    const newSkill = wormholeNavigationSkill + 2;
-    req.data.stardustCollection = stardustCollection + 800;
+  // Giving some bonus Skill Points
+  if (aEligiblePlanets.includes(originPlanet_ID)) {
+    let newSkill = 0;
+    newSkill =
+      sEvent === "CREATE"
+        ? wormholeNavigationSkill + 2
+        : wormholeNavigationSkill;
+    req.data.stardustCollection =
+      sEvent === "CREATE" ? stardustCollection + 800 : stardustCollection;
     req.data.wormholeNavigationSkill = newSkill > 5 ? 5 : newSkill;
   }
 };
 
+/**
+ * This method will be triggered when a new Spacefarer created successfully.
+ * And here using the Cloud SDK Mail client we will be sending mails to the newly created
+ * spacefarer.
+ * @param {*} req Will be supplied by Framework, which has all the Request Data
+ */
 const onAfterGalacticSpaceFarerCreation = (req) => {
+  // Getting teh email_id
   const { email } = req;
+  // Preparing the mail configuration
   const mailConfig = {
     from: "shaancse08@gmail.com",
     to: email,
     subject: "Your Space Journey Begins!",
     text: "We are thrilled to inform you that your journey to becoming a spacefarer has officially begun! This is an exciting time, and we are delighted to have you on board for this extraordinary adventure.",
   };
+  // Sending mails
   sendMail({ destinationName: "GalacticMailTransfer" }, [mailConfig]);
 };
 
-
 module.exports = {
-  onBeforeGalacicSpaceCreate,
-  onAfterGalacticSpaceFarerCreation
+  onBeforeGalacicSpaceFarerUpdate,
+  onAfterGalacticSpaceFarerCreation,
 };

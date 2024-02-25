@@ -1,12 +1,12 @@
 using {GalacticService} from '../app/services';
 
 
-annotate GalacticService.GalacticSpacefarer with @odata.draft.enabled;
+// annotate GalacticService.GalacticSpacefarer with @odata.draft.enabled;
 
 annotate GalacticService.GalacticSpacefarer with @(Capabilities: {
     InsertRestrictions: {
         $Type     : 'Capabilities.InsertRestrictionsType',
-        Insertable: false
+        Insertable: true
     },
     DeleteRestrictions: {
         $Type    : 'Capabilities.DeleteRestrictionsType',

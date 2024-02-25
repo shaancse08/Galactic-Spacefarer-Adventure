@@ -15,7 +15,7 @@ Content-Type: application/json
       "email": "shaancse08@gmail.com",
       "stardustCollection": 101,
       "wormholeNavigationSkill": 5,
-      "originPlanet": "Xandar",
+      "originPlanet_ID": "fdc3e7d9-73a0-4f9c-a508-481b6e579fd6",
       "spacesuitColor": "Black",
       "department_ID": "10b034d9-6b72-4f42-bdbd-956d6d485161",
       "position_ID": "fdc32c72-ef5f-460c-b567-3920bea13e0c"
