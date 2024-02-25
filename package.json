@@ -30,6 +30,9 @@
     "app/galacticlistreport"
   ],
   "cds": {
+    "fiori": {
+      "bypass_draft": true
+    },
     "requires": {
       "db": "sqlite",
       "destinations": true,

@@ -18,14 +18,7 @@ Content-Type: application/json
       "originPlanet_ID": "fdc3e7d9-73a0-4f9c-a508-481b6e579fd6",
       "spacesuitColor": "Black",
       "department_ID": "10b034d9-6b72-4f42-bdbd-956d6d485161",
-      "position_ID": "fdc32c72-ef5f-460c-b567-3920bea13e0c"
-    }
-
-### Update SpaceFarer StarDust Collection
-PATCH http://localhost:4004/GalacticSRV/GalacticSpacefarer/e91ff619-ff06-4912-9a7a-5669924352c8 HTTP/1.1
-Content-Type: application/json
-
-    {
-      "stardustCollection": 1000
+      "position_ID": "fdc32c72-ef5f-460c-b567-3920bea13e0c",
+      "IsActiveEntity": true
     }
 
