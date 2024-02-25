@@ -1,4 +1,4 @@
-using {GalacticService} from '../app/services';
+using {GalacticService, GalacticAdminService} from '../app/services';
 
 
 annotate GalacticService.GalacticSpacefarer with @odata.draft.enabled;
@@ -6,11 +6,11 @@ annotate GalacticService.GalacticSpacefarer with @odata.draft.enabled;
 annotate GalacticService.GalacticSpacefarer with @(Capabilities: {
     InsertRestrictions: {
         $Type     : 'Capabilities.InsertRestrictionsType',
-        Insertable: false,
+        Insertable: true,
     },
     DeleteRestrictions: {
         $Type    : 'Capabilities.DeleteRestrictionsType',
-        Deletable: false
+        Deletable: true
     },
     UpdateRestrictions: {
         $Type    : 'Capabilities.UpdateRestrictionsType',
@@ -32,7 +32,6 @@ annotate GalacticService.GalacticSpacefarer with @(restrict: [
     }
 ]);
 
-
 annotate GalacticService.GalacticSpacefarer with {
     name                     @title: '{i18n>Name}';
     spacefarerNickName       @title: '{i18n>SpacefarerNickName}';
@@ -43,3 +42,6 @@ annotate GalacticService.GalacticSpacefarer with {
     spacesuitColor           @title: '{i18n>SpaceSuitColor}';
     stardustCollectionStatus @title: '{i18n>StarDustCollectionStatus}';
 };
+
+
+
