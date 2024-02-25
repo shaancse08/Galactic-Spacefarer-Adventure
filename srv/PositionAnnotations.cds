@@ -1,7 +1,7 @@
 
 using { GalacticService } from '../app/services';
 
-annotate GalacticService.Position with @readonly;
+// annotate GalacticService.Position with @readonly;
 
 
 annotate GalacticService.Position with {

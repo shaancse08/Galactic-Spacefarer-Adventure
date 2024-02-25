@@ -42,7 +42,9 @@
             "roles": [
               "PlanetUser"
             ],
-            "attr": {"Planet": "Earth"}
+            "attr": {
+              "Planet": "Earth"
+            }
           },
           "asgard@sap.com": {
             "password": "initial",
@@ -50,7 +52,9 @@
             "roles": [
               "PlanetUser"
             ],
-            "attr": {"Planet": "Asgard"}
+            "attr": {
+              "Planet": "Asgard"
+            }
           },
           "wakanda@sap.com": {
             "password": "initial",
@@ -58,8 +62,17 @@
             "roles": [
               "PlanetUser"
             ],
-            "attr": {"Planet": "Wakanda"}
-          }                    
+            "attr": {
+              "Planet": "Wakanda"
+            }
+          },
+          "admin@sap.com": {
+            "password": "initial",
+            "ID": "admin@sap.com",
+            "roles": [
+              "Admin"
+            ]
+          }
         }
       }
     }

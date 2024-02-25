@@ -2,16 +2,54 @@ using galactic.spacefarer as spacefarer from '../db/data-model';
 
 @path: '/GalacticSRV'
 service GalacticService @(requires: 'authenticated-user') {
-    @(restrict: [{
-        grant: ['*'],
-        where: 'originPlanet.name = $user.Planet'
-    }])
+    @(restrict: [
+        {
+            grant: [
+                'READ',
+                'UPDATE'
+            ],
+            where: 'originPlanet.name = $user.Planet'
+        },
+        {
+            grant: ['*'],
+            to   : 'Admin'
+        }
+    ])
     entity GalacticSpacefarer as projection on spacefarer.GalacticSpacefarer;
 
+    @(restrict: [
+        {
+            grant: ['READ'],
+            to   : 'PlanetUser'
+        },
+        {
+            grant: ['*'],
+            to   : 'Admin'
+        }
+    ])
     entity Department         as projection on spacefarer.Department;
 
-    @readonly
+    @(restrict: [
+        {
+            grant: ['READ'],
+            to   : 'PlanetUser'
+        },
+        {
+            grant: ['*'],
+            to   : 'Admin'
+        }
+    ])
     entity Position           as projection on spacefarer.Position;
 
-    entity Planet as projection on spacefarer.Planet;
+    @(restrict: [
+        {
+            grant: ['READ'],
+            to   : 'PlanetUser'
+        },
+        {
+            grant: ['*'],
+            to   : 'Admin'
+        }
+    ])
+    entity Planet             as projection on spacefarer.Planet;
 }

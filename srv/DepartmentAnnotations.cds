@@ -1,6 +1,6 @@
 using { GalacticService } from '../app/services';
 
-annotate GalacticService.Department with @readonly;
+// annotate GalacticService.Department with @readonly;
 
 
 annotate GalacticService.Department with {
