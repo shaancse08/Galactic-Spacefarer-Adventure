@@ -9,6 +9,7 @@
     "@sap-cloud-sdk/mail-client": "^3.12.0",
     "@sap/cds": "^7",
     "@sap/cds-hana": "^2",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
     "@sap/xssec": "^3",
     "express": "^4",
     "passport": "^0"
@@ -24,7 +25,8 @@
     "watch-galacticlistreport": "cds watch --open galacticlistreport/webapp/index.html?sap-ui-xx-viewCache=false",
     "undeploy": "cf undeploy undefined --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
-    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-galacticadmin": "cds watch --open galacticadmin/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "sapux": [
     "app/galacticlistreport"
