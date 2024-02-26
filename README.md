@@ -44,3 +44,10 @@ We have two applications:
 - [Galactic List Report](./app/galacticlistreport/webapp/index.html): Here we can only access the data and update stardust collections, navigation skills etc. We have leveraged Fiori elements capability to generate teh application
 - [Galactic Admin Report](./app/galacticadmin/webapp/index.html): This app is specially for Admin to create spacefarers. And this app built on SAP UI5 Freestyle capabilities.
 - Apps can be accessed using the [Dummy User Credentials](package.json).
+
+## Services
+
+In this entire application we have generated two services `GalacticService` and `GalacticAdminService`.
+
+- In the `GalacticService` service the insert, delete capabilities are stopped because we don't want to show the `Create` and `Delete` button to the user in the application. According to the Fiori UI guidelines we should not show the irrelevant data to the user. If we keep only one service then the capabilities will be true for admin and the Planet uesrs will see the Create, Delete button but they are not operational for them. hence we have introduced new service `GalacticAdminService` where we have all the capabilities.
+- The service is both V4 and V2 capabilities, because we have used smart controls in Admin app, Smart controls are not yet supported by OData V4 Model. To convert V4 to V2 we have used `@sap/cds-odata-v2-adapter-proxy` dependency and conversion happened in [server.js](./srv/server.js) file.
