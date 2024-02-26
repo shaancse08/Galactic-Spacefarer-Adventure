@@ -23,7 +23,7 @@ Here we have below [validations](./srv/src/controllers/galacticSpacefarerOperati
 - The Spacefarer must have more than 100 stardust points to on-board into cosmic journey.
 - If they are from Earth and Xandar then they will be getting Bonus 800 stardust points.
 
-## Successfull On-Board Action
+## Successful On-Board Action
 
 Once any spacefarer is successfully on-boarded then we are sending a congratulations mail to the respective spacefarer's email. To dispatch an email from a the application, we leveraged the SAP Cloud SDK mail client. In doing so, we established a designated destination within the SAP Business Technology Platform (BTP) account. Through the configured send mail settings, we successfully transmitted the email.
 
@@ -37,4 +37,10 @@ Once any spacefarer is successfully on-boarded then we are sending a congratulat
 
 We have kept two main roles: `PlanetUsers`, `Admin`. Planet users are granted access solely to data related to their affiliated planets and the admin holds the key to the entire cosmic archive, bestowed with the ability to both view and modify all data. Planet users can modify only Stardustcollection and navigation skills.
 
+## Applications
 
+We have two applications:
+
+- [Galactic List Report](./app/galacticlistreport/webapp/index.html): Here we can only access the data and update stardust collections, navigation skills etc. We have leveraged Fiori elements capability to generate teh application
+- [Galactic Admin Report](./app/galacticadmin/webapp/index.html): This app is specially for Admin to create spacefarers. And this app built on SAP UI5 Freestyle capabilities.
+- Apps can be accessed using the [Dummy User Credentials](package.json).
