@@ -115,7 +115,12 @@
           "name": "RouteDetails",
           "pattern": "SpaceFarer/{id}",
           "target": ["TargetDetails"]
-        }
+        },
+        {
+          "name": "RouteCreate",
+          "pattern": "CreateSpaceFarer",
+          "target": ["TargetCreate"]
+        }        
       ],
       "targets": {
         "TargetHome": {
@@ -131,7 +136,14 @@
           "clearControlAggregation": false,
           "viewId": "Details",
           "viewName": "Details"
-        }
+        },
+        "TargetCreate": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Create",
+          "viewName": "Create"
+        }        
       }
     },
     "rootView": {

@@ -7,7 +7,17 @@
     displayBlock="true"
     xmlns="sap.m"
 >
-    <Page id="idAdminPage">
+    <Page
+        id="idAdminPage"
+        title="{i18n>appTitle}"
+    >
+        <headerContent>
+            <Button
+                id="idCreateButton"
+                text="Create"
+                press=".onCreateGalacticSpacefarer"
+            />
+        </headerContent>
         <smartfilterbar:SmartFilterBar
             id="idFilterBarForSpacefarer"
             entitySet="GalacticSpacefarer"
@@ -18,7 +28,7 @@
             id="idAdminpageListReport"
             tableType="ResponsiveTable"
             entitySet="GalacticSpacefarer"
-            header="{i18n>Galactic Spacefarer}"
+            header="{i18n>GalacticSpacefarer}"
             showRowCount="true"
             smartFilterId="idFilterBarForSpacefarer"
             enableAutoBinding="true"
