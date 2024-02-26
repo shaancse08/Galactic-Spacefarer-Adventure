@@ -12,9 +12,9 @@ Below, we present the stellar list of entities that form the backbone of our cos
   - Xandar
   - Hala
   - Zen-Whoberi
-- **[Department](./db/data-model.cds)**: In this entity we have all the Intergalactic Departments listed and based on this we are on-boarding the spacefarers.
+- **[Department](./db/data-model.cds)**: In this entity we have all the Intergalactic Departments listed and based on this we are on-boarding the spacefarers. [Here](./db/data/galactic.spacefarer-Department.csv) we can find teh Department Details.
 
-- **[Position](./db/data-model.cds)**: This entity contains all the Intergalacti positions which we can consider while on-boarding a new spacefarer.
+- **[Position](./db/data-model.cds)**: This entity contains all the Intergalacti positions which we can consider while on-boarding a new spacefarer. Data can be seen [here](./db/data/galactic.spacefarer-Position.csv)
 
 ## Validations and Enhancements
 
