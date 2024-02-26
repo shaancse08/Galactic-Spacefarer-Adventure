@@ -3,11 +3,12 @@ sap.ui.define(
     "./BaseController",
     "sap/ui/model/json/JSONModel",
     "com/app/galacticadmin/controller/ServiceOperation",
+    "sap/m/MessageToast",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (BaseController, JSONModel, ServiceOperation) {
+  function (BaseController, JSONModel, ServiceOperation, MessageToast) {
     "use strict";
 
     return BaseController.extend("com.app.galacticadmin.controller.Home", {
@@ -77,17 +78,31 @@ sap.ui.define(
           // Path Build
           sPath = "/GalacticSpacefarer";
 
+          // Closing the Dialog and Refresh the Model
+        this.oCreateDialog.close();
+        this.initialSetUp();
+
         // Calling the Post Promise using try catch
         try {
-          const aResult = await ServiceOperation.createRecord(
-            oModel,
-            oPayload,
-            sPath
+          await ServiceOperation.createRecord(oModel, oPayload, sPath);
+          MessageToast.show(
+            this.getResourceBundle().getText("SuccessSpaceFarerCreated")
           );
-          console.log(aResult);
+          // Closing the Dialog
         } catch (oErrorData) {
-          console.log(oErrorData);
+          // Closing the Dialog
+          this.onErrorHandling(oErrorData);
         }
+      },
+      /**
+       *
+       * @param {*} oEvent Will provided by framework
+       */
+      onDialogClose: function (oEvent) {
+        // getting the Dialog Object
+        const oDialog = oEvent.getSource().getParent();
+        // Closing the Dialog
+        oDialog.isOpen() && oDialog.close();
       },
     });
   }
