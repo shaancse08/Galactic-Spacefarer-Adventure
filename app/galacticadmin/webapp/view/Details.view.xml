@@ -20,6 +20,14 @@
                         text="{name}"
                     />
                 </uxap:expandedHeading>
+                <uxap:actions>
+                    <Button
+                        id="idDeleteBtn"
+                        text="{i18n>Delete}"
+                        press=".onDeleteSpacefarer"
+                        type="Reject"
+                    />
+                </uxap:actions>
             </uxap:ObjectPageDynamicHeaderTitle>
         </uxap:headerTitle>
         <uxap:headerContent>

@@ -21,5 +21,24 @@ sap.ui.define([], function () {
         });
       });
     },
+
+      /**
+       * This method is a generic method to delete record.
+       * @param {*} oModel Model Object
+       * @param {*} sKey Key to be deleted
+       */
+      deleteRecord: function (oModel, sPath, sKey) {
+        return new Promise((resolve, reject) => {
+          oModel.remove(`${sPath}/${sKey}`, {
+            success: function (oSuccessData) {
+              resolve(oSuccessData);
+            },
+            error: function (oErrorData) {
+              reject(oErrorData);
+            },
+          });
+        });
+      },    
+
   };
 });

@@ -1,9 +1,9 @@
 sap.ui.define(
-  ["./BaseController"],
+  ["./BaseController", "com/app/galacticadmin/controller/ServiceOperation"],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (BaseController) {
+  function (BaseController, ServiceOperation) {
     "use strict";
 
     return BaseController.extend("com.app.galacticadmin.controller.Details", {
@@ -28,13 +28,25 @@ sap.ui.define(
         }
         // Getting the Spacefarer ID
         const sSpaceFarerID = oEvent.getParameter("arguments").id,
-        oDetailsPage = this.getView();
+        oDetailsPage = this.getView().byId("Details");
         // Preparing the Element Binding For Getting Data in Object Page
         oDetailsPage.bindElement({
           path: `/GalacticSpacefarer(${sSpaceFarerID})`,
           parameters : {'expand' : "department,originPlanet,position"}
         });
       },
+      onDeleteSpacefarer: async function(){
+        const oDetailsPage = this.getView().byId("Details"),
+        {ID: spacefarerId} = oDetailsPage.getBindingContext().getObject(),
+        oModel = this.getView().getModel(),
+        sPath = "/GalacticSpacefarer";
+        try {
+          await ServiceOperation.deleteRecord(oModel, sPath, spacefarerId);
+          this.getRouter().navTo("RouteHome");
+        } catch (error) {
+          this.onErrorHandling(error);
+        }
+      }
     });
   }
 );
