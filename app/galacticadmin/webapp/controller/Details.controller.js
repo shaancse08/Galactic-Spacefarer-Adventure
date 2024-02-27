@@ -35,15 +35,23 @@ sap.ui.define(
           parameters : {'expand' : "department,originPlanet,position"}
         });
       },
+      /**
+       * This method will be triggered when Admin wants to delete any
+       * Spacefarer from the Galaxy
+       */
       onDeleteSpacefarer: async function(){
+        // Getting the Spacefarer ID and Details Pag Object
         const oDetailsPage = this.getView().byId("Details"),
         {ID: spacefarerId} = oDetailsPage.getBindingContext().getObject(),
         oModel = this.getView().getModel(),
         sPath = "/GalacticSpacefarer";
         try {
+          // Calling the Delete operation
           await ServiceOperation.deleteRecord(oModel, sPath, spacefarerId);
+          // Navigating Back to the Home Screen Once Deleted
           this.getRouter().navTo("RouteHome");
         } catch (error) {
+          // Handling the Errors
           this.onErrorHandling(error);
         }
       }
