@@ -1,9 +1,9 @@
 sap.ui.define(
-  ["./BaseController"],
+  ["./BaseController", "com/app/galacticadmin/controller/ServiceOperation"],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (BaseController) {
+  function (BaseController, ServiceOperation) {
     "use strict";
 
     return BaseController.extend("com.app.galacticadmin.controller.Details", {
@@ -28,13 +28,33 @@ sap.ui.define(
         }
         // Getting the Spacefarer ID
         const sSpaceFarerID = oEvent.getParameter("arguments").id,
-        oDetailsPage = this.getView();
+        oDetailsPage = this.getView().byId("Details");
         // Preparing the Element Binding For Getting Data in Object Page
         oDetailsPage.bindElement({
           path: `/GalacticSpacefarer(${sSpaceFarerID})`,
           parameters : {'expand' : "department,originPlanet,position"}
         });
       },
+      /**
+       * This method will be triggered when Admin wants to delete any
+       * Spacefarer from the Galaxy
+       */
+      onDeleteSpacefarer: async function(){
+        // Getting the Spacefarer ID and Details Pag Object
+        const oDetailsPage = this.getView().byId("Details"),
+        {ID: spacefarerId} = oDetailsPage.getBindingContext().getObject(),
+        oModel = this.getView().getModel(),
+        sPath = "/GalacticSpacefarer";
+        try {
+          // Calling the Delete operation
+          await ServiceOperation.deleteRecord(oModel, sPath, spacefarerId);
+          // Navigating Back to the Home Screen Once Deleted
+          this.getRouter().navTo("RouteHome");
+        } catch (error) {
+          // Handling the Errors
+          this.onErrorHandling(error);
+        }
+      }
     });
   }
 );
