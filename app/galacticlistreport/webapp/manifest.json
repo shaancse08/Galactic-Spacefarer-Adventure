@@ -1,5 +1,5 @@
 {
-  "_version": "1.58.0",
+  "_version": "1.59.0",
   "sap.app": {
     "id": "com.app.galacticlistreport",
     "type": "application",
@@ -12,8 +12,8 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
-      "version": "1.11.4",
-      "toolsId": "730e8dae-c7a2-43ec-8d29-d1884167afe9"
+      "version": "1.12.5",
+      "toolsId": "237b58da-0cd9-4a5d-af12-0627c262d92d"
     },
     "dataSources": {
       "mainService": {
@@ -21,18 +21,16 @@
         "type": "OData",
         "settings": {
           "annotations": [],
-          "localUri": "localService/metadata.xml",
           "odataVersion": "4.0"
         }
       }
     },
     "crossNavigation": {
       "inbounds": {
-        "GalacticListReport-Display": {
-          "semanticObject": "GalacticListReport",
-          "action": "Display",
+        "GalacticList-display": {
+          "semanticObject": "GalacticList",
+          "action": "display",
           "title": "{{flpTitle}}",
-          "subTitle": "{{flpSubtitle}}",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
@@ -60,7 +58,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.120.8",
+      "minUI5Version": "1.120.9",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -126,8 +124,7 @@
                     "route": "GalacticSpacefarerObjectPage"
                   }
                 }
-              },
-              "initialLoad": true
+              }
             }
           }
         },
@@ -148,5 +145,9 @@
   "sap.fiori": {
     "registrationIds": [],
     "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "galatic-service"
   }
 }

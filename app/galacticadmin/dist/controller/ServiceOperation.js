@@ -1,0 +1,1 @@
+sap.ui.define([],function(){"use strict";return{createRecord:(e,r,n)=>new Promise((c,o)=>{e.create(n,r,{success:function(e){c(e)},error:function(e){o(e)}})}),deleteRecord:function(e,r,n){return new Promise((c,o)=>{e.remove(`${r}/${n}`,{success:function(e){c(e)},error:function(e){o(e)}})})}}});

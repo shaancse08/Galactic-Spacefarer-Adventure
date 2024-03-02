@@ -1,0 +1,160 @@
+_schema-version: "3.1"
+ID: Galactic-Spacefarer-Adventure
+description: A simple CAP project.
+version: 1.0.0
+modules:
+  # Service
+  - name: Galactic-Spacefarer-Adventure-srv
+    type: nodejs
+    path: gen/srv
+    requires:
+      - name: Galactic-Spacefarer-Adventure-db
+      - name: Galactic-Spacefarer-Adventure-auth
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm
+      # DB Deployer
+  - name: Galactic-Spacefarer-Adventure-db-deployer
+    type: hdb
+    path: gen/db
+    requires:
+      - name: Galactic-Spacefarer-Adventure-db
+    parameters:
+      buildpack: nodejs_buildpack
+      # Destination Content
+  - name: Galactic-Spacefarer-Adventure-destination-content
+    type: com.sap.application.content
+    requires:
+      - name: Galactic-Spacefarer-Adventure-destination-service
+        parameters:
+          content-target: true
+      - name: Galactic-Spacefarer-Adventure_html_repo_host
+        parameters:
+          service-key:
+            name: Galactic-Spacefarer-Adventure_html_repo_host-key
+      - name: Galactic-Spacefarer-Adventure-auth
+        parameters:
+          service-key:
+            name: Galactic-Spacefarer-Adventure-auth-key
+    parameters:
+      content:
+        instance:
+          destinations:
+            - Name: galatic_service_Galactic_Spacefarer_Adventure_html_repo_host
+              ServiceInstanceName: Galactic-Spacefarer-Adventure-host-service
+              ServiceKeyName: Galactic-Spacefarer-Adventure_html_repo_host-key
+              sap.cloud.service: galatic-service
+            - Authentication: OAuth2UserTokenExchange
+              Name: galatic_service_Galactic_Spacefarer_Adventure_auth
+              ServiceInstanceName: Galactic-Spacefarer-Adventure-auth
+              ServiceKeyName: Galactic-Spacefarer-Adventure-auth-key
+              sap.cloud.service: galatic-service
+          existing_destinations_policy: ignore
+    build-parameters:
+      no-source: true
+      # App Content
+  - name: Galactic-Spacefarer-Adventure-app-content
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: Galactic-Spacefarer-Adventure_html_repo_host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - comappgalacticlistreport.zip
+          name: comappgalacticlistreport
+          target-path: resources/
+        - artifacts:
+            - comappgalacticadmin.zip
+          name: comappgalacticadmin
+          target-path: resources/
+          # Galactic List report App
+  - name: comappgalacticlistreport
+    type: html5
+    path: app/galacticlistreport
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:cf
+      supported-platforms: []
+      # Galactic Admin App
+  - name: comappgalacticadmin
+    type: html5
+    path: app/galacticadmin
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:cf
+      supported-platforms: []
+resources:
+  # Database
+  - name: Galactic-Spacefarer-Adventure-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+      # XSUAA
+  - name: Galactic-Spacefarer-Adventure-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        tenant-mode: dedicated
+        xsappname: Galactic-Spacefarer-Adventure-${org}-${space}
+      path: ./xs-security.json
+      service: xsuaa
+      service-plan: application
+      # destination Service
+  - name: Galactic-Spacefarer-Adventure-destination-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        HTML5Runtime_enabled: true
+        init_data:
+          instance:
+            destinations:
+              - Authentication: NoAuthentication
+                Name: ui5
+                ProxyType: Internet
+                Type: HTTP
+                URL: https://ui5.sap.com
+              - Authentication: NoAuthentication
+                HTML5.DynamicDestination: true
+                HTML5.ForwardAuthToken: true
+                Name: Galactic-Spacefarer-Adventure-srv-api
+                ProxyType: Internet
+                Type: HTTP
+                URL: ~{srv-api/srv-url}
+            existing_destinations_policy: update
+        version: 1.0.0
+      service: destination
+      service-name: Galactic-Spacefarer-Adventure-destination-service
+      service-plan: lite
+    requires:
+      - name: srv-api
+    # Repo Host
+  - name: Galactic-Spacefarer-Adventure_html_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-name: Galactic-Spacefarer-Adventure-host-service
+      service-plan: app-host
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npx cds build --production

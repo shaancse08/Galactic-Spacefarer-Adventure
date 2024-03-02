@@ -1,85 +1,91 @@
 {
-  "name": "Galactic-Spacefarer-Adventure",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap-cloud-sdk/mail-client": "^3.12.0",
-    "@sap/cds": "^7",
-    "@sap/cds-hana": "^2",
-    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
-    "@sap/xssec": "^3",
-    "express": "^4",
-    "passport": "^0"
-  },
-  "devDependencies": {
-    "@cap-js/sqlite": "^1",
-    "@sap/cds-dk": "^7",
-    "@sap/ux-specification": "^1.120.4",
-    "rimraf": "^3.0.2"
-  },
-  "scripts": {
-    "start": "cds-serve",
-    "watch-galacticlistreport": "cds watch --open galacticlistreport/webapp/index.html?sap-ui-xx-viewCache=false",
-    "undeploy": "cf undeploy undefined --delete-services --delete-service-keys --delete-service-brokers",
-    "build": "rimraf resources mta_archives && mbt build --mtar archive",
-    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
-    "watch-galacticadmin": "cds watch --open galacticadmin/webapp/index.html?sap-ui-xx-viewCache=false"
-  },
-  "sapux": [
-    "app/galacticlistreport"
-  ],
-  "cds": {
-    "fiori": {
-      "bypass_draft": true
+    "name": "Galactic-Spacefarer-Adventure",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap-cloud-sdk/mail-client": "^3.12.0",
+        "@sap/cds": "^7",
+        "@sap/cds-hana": "^2",
+        "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+        "@sap/xssec": "^3",
+        "express": "^4",
+        "passport": "^0"
     },
-    "requires": {
-      "db": "sqlite",
-      "destinations": true,
-      "auth": {
-        "kind": "mocked",
-        "users": {
-          "earth@sap.com": {
-            "password": "initial",
-            "ID": "earth@sap.com",
-            "roles": [
-              "PlanetUser"
-            ],
-            "attr": {
-              "Planet": "Earth"
-            }
-          },
-          "asgard@sap.com": {
-            "password": "initial",
-            "ID": "asgard@sap.com",
-            "roles": [
-              "PlanetUser"
-            ],
-            "attr": {
-              "Planet": "Asgard"
-            }
-          },
-          "wakanda@sap.com": {
-            "password": "initial",
-            "ID": "wakanda@sap.com",
-            "roles": [
-              "PlanetUser"
-            ],
-            "attr": {
-              "Planet": "Wakanda"
-            }
-          },
-          "admin@sap.com": {
-            "password": "initial",
-            "ID": "admin@sap.com",
-            "roles": [
-              "Admin"
-            ]
-          }
+    "devDependencies": {
+        "@cap-js/sqlite": "^1",
+        "@sap/cds-dk": "^7",
+        "@sap/ux-specification": "^1.120.5",
+        "rimraf": "^3.0.2"
+    },
+    "scripts": {
+        "start": "cds-serve",
+        "watch-galacticlistreport": "cds watch --open galacticlistreport/webapp/index.html?sap-ui-xx-viewCache=false",
+        "undeploy": "cf undeploy Galactic-Spacefarer-Adventure --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+        "watch-galacticadmin": "cds watch --open galacticadmin/webapp/index.html?sap-ui-xx-viewCache=false"
+    },
+    "sapux": [
+        "app/galacticlistreport",
+        "app/galacticlistreport",
+        "app/galacticlistreport"
+    ],
+    "cds": {
+        "fiori": {
+            "bypass_draft": true
+        },
+        "requires": {
+            "[hybrid]": {
+                "db": "sqlite",
+                "destinations": true,
+                "auth": {
+                    "kind": "mocked",
+                    "users": {
+                        "earth@sap.com": {
+                            "password": "initial",
+                            "ID": "earth@sap.com",
+                            "roles": [
+                                "PlanetUser"
+                            ],
+                            "attr": {
+                                "Planet": "Earth"
+                            }
+                        },
+                        "asgard@sap.com": {
+                            "password": "initial",
+                            "ID": "asgard@sap.com",
+                            "roles": [
+                                "PlanetUser"
+                            ],
+                            "attr": {
+                                "Planet": "Asgard"
+                            }
+                        },
+                        "wakanda@sap.com": {
+                            "password": "initial",
+                            "ID": "wakanda@sap.com",
+                            "roles": [
+                                "PlanetUser"
+                            ],
+                            "attr": {
+                                "Planet": "Wakanda"
+                            }
+                        },
+                        "admin@sap.com": {
+                            "password": "initial",
+                            "ID": "admin@sap.com",
+                            "roles": [
+                                "Admin"
+                            ]
+                        }
+                    }
+                }
+            },
+            "db": "hana",
+            "auth": "xsuaa"
         }
-      }
     }
-  }
 }

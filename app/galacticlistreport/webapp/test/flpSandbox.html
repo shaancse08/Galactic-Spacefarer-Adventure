@@ -54,10 +54,10 @@
         };
     </script>
 
-    <script src="https://sapui5.hana.ondemand.com/1.120.8/test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
+    <script src="https://sapui5.hana.ondemand.com/1.120.9/test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
     <!-- Bootstrap the UI5 core library -->
     <script id="sap-ui-bootstrap"
-        src="https://sapui5.hana.ondemand.com/1.120.8/resources/sap-ui-core.js"
+        src="https://sapui5.hana.ondemand.com/1.120.9/resources/sap-ui-core.js"
         data-sap-ui-libs=""
         data-sap-ui-async="true"
         data-sap-ui-preload="async"
@@ -67,6 +67,10 @@
         data-sap-ui-resourceroots='{"com.app.galacticlistreport": "../"}'
         data-sap-ui-frameOptions="allow"> // NON-SECURE setting for testing environment
     </script>
+
+    <script type="text/javascript">
+        sap.ui.getCore().attachInit(() => sap.ushell.Container.createRenderer().placeAt('content'));
+    </script>     
 </head>
 
 <!-- UI Content -->

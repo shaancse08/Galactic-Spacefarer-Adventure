@@ -1,10 +1,10 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Sun Feb 25 2024 16:41:50 GMT+0530 (India Standard Time)|
+|**Generation Date and Time**<br>Sat Mar 02 2024 07:18:06 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>@sap/generator-fiori-freestyle|
-|**App Generator Version**<br>1.11.4|
-|**Generation Platform**<br>Visual Studio Code|
+|**App Generator Version**<br>1.12.5|
+|**Generation Platform**<br>SAP Business Application Studio|
 |**Template Used**<br>simple|
 |**Service Type**<br>Local Cap|
 |**Service URL**<br>http://localhost:4004/GalacticAdminSRV/
@@ -12,7 +12,7 @@
 |**Application Title**<br>Galactic Spacefarer Admin App|
 |**Namespace**<br>com.app|
 |**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.120.8|
+|**UI5 Version**<br>1.120.9|
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
