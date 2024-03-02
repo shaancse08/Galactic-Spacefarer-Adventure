@@ -3,8 +3,8 @@
   "authenticationMethod": "route",
   "routes": [
     {
-      "source": "^/GalacticAdminSRV/(.*)$",
-      "target": "/GalacticAdminSRV/$1",
+      "source": "^/v2/GalacticAdminSRV/(.*)$",
+      "target": "/v2/GalacticAdminSRV/$1",
       "destination": "Galactic-Spacefarer-Adventure-srv-api",
       "authenticationType": "xsuaa",
       "csrfProtection": false

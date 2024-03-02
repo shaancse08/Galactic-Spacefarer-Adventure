@@ -8,7 +8,7 @@ sap.ui.define(
   function (Controller, UIComponent, Fragment, MessageBox) {
     "use strict";
 
-    return Controller.extend("my.application.controller.BaseController", {
+    return Controller.extend("com.app.galacticadmin.controller.BaseController", {
       // just this.getRouter() ...
       getRouter: function () {
         // ... instead of
@@ -31,10 +31,6 @@ sap.ui.define(
       getResourceBundle: function () {
         // ... instead of
         return this.getOwnerComponent().getModel("i18n").getResourceBundle();
-      },
-
-      getView: function () {
-        return this.getView();
       },
 
       /**

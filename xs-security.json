@@ -52,7 +52,6 @@
     }
   ],
   "oauth2-configuration": {
-    "token-validity": 3600,
-    "redirect-uris": ["https://*/**"]
+    "token-validity": 3600
   }  
 }
