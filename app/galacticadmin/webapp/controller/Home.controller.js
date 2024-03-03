@@ -69,14 +69,20 @@ sap.ui.define(
        * for Data Post for new Spacefarer
        */
       onSubmitData: async function () {
-        const oGalactiPayload = JSON.parse(this.getView()
-        .getModel("localModel")
-        .getProperty("/createPayload"));
+        const oGalactiPayload = this.getView()
+          .getModel("localModel")
+          .getProperty("/createPayload");
         oGalactiPayload.ID = this.getUUID();
+        oGalactiPayload.stardustCollection = parseInt(
+          oGalactiPayload.stardustCollection
+        );
+        oGalactiPayload.wormholeNavigationSkill = parseInt(
+          oGalactiPayload.wormholeNavigationSkill
+        );
         // Getting the Payload for Create Operation
         const oPayload = {
-          data: oGalactiPayload
-        },
+            data: oGalactiPayload,
+          },
           // Model Object Preparation
           oModel = this.getView().getModel(),
           // Path Build

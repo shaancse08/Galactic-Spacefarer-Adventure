@@ -69,6 +69,7 @@ const onAfterGalacticSpaceFarerCreation = (req) => {
 
 
 const onTriggerWorkflowAction = async (req) => {
+  console.log(req.data.data);
   const { ID, name, spacefarerNickName, email, stardustCollection, wormholeNavigationSkill, originPlanet_ID, spacesuitColor, department_ID, position_ID } = req.data.data;
   try {
     let response = await executeHttpRequest(
@@ -97,10 +98,9 @@ const onTriggerWorkflowAction = async (req) => {
         }
       }
     );
-    let data = response.data.d.results;
-    return data;
+    return `Successful`
   } catch (error) {
-    console.log(error);
+    req.reject(error);
   }
 }
 

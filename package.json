@@ -43,53 +43,7 @@
             "db": {
                 "kind": "hana"
             },
-            "auth": "xsuaa",
-            "[hybrid]": {
-                "db": "sqlite",
-                "destinations": true,
-                "auth": {
-                    "kind": "mocked",
-                    "users": {
-                        "earth@sap.com": {
-                            "password": "initial",
-                            "ID": "earth@sap.com",
-                            "roles": [
-                                "PlanetUser"
-                            ],
-                            "attr": {
-                                "Planet": "Earth"
-                            }
-                        },
-                        "asgard@sap.com": {
-                            "password": "initial",
-                            "ID": "asgard@sap.com",
-                            "roles": [
-                                "PlanetUser"
-                            ],
-                            "attr": {
-                                "Planet": "Asgard"
-                            }
-                        },
-                        "wakanda@sap.com": {
-                            "password": "initial",
-                            "ID": "wakanda@sap.com",
-                            "roles": [
-                                "PlanetUser"
-                            ],
-                            "attr": {
-                                "Planet": "Wakanda"
-                            }
-                        },
-                        "admin@sap.com": {
-                            "password": "initial",
-                            "ID": "admin@sap.com",
-                            "roles": [
-                                "Admin"
-                            ]
-                        }
-                    }
-                }
-            }
+            "auth": "xsuaa"
         }
     }
 }
