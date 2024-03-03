@@ -1,4 +1,5 @@
 const { sendMail, MailConfig } = require("@sap-cloud-sdk/mail-client");
+const { executeHttpRequest } = require("@sap-cloud-sdk/http-client");
 /**
  * Below method will do the validation before creating the Spacefarer
  * SpaceFarer needs to have 100 StarDustCollection To embark the journey
@@ -53,7 +54,6 @@ const onBeforeGalacicSpaceFarerUpdate = async (req) => {
  * @param {*} req Will be supplied by Framework, which has all the Request Data
  */
 const onAfterGalacticSpaceFarerCreation = (req) => {
-  console.log("After Event");
   // Getting teh email_id
   const { email } = req;
   // Preparing the mail configuration
@@ -67,7 +67,45 @@ const onAfterGalacticSpaceFarerCreation = (req) => {
   sendMail({ destinationName: "GalacticMailTransfer" }, [mailConfig]);
 };
 
+
+const onTriggerWorkflowAction = async (req) => {
+  const { ID, name, spacefarerNickName, email, stardustCollection, wormholeNavigationSkill, originPlanet_ID, spacesuitColor, department_ID, position_ID } = req.data.data;
+  try {
+    let response = await executeHttpRequest(
+      {
+        destinationName: "TriggerWorkflow",
+      },
+      {
+        method: "POST",
+        url: "",
+        data: {
+          definitionId: "us10.trial-xhma0rrx.galacticspacefareronboarding.newGalacticSpacefarerProcess",
+          context: {
+            farerdetails: {
+              ID,
+              name,
+              spacefarerNickName,
+              email,
+              stardustCollection,
+              wormholeNavigationSkill,
+              originPlanet_ID,
+              spacesuitColor,
+              department_ID,
+              position_ID
+            }
+          }
+        }
+      }
+    );
+    let data = response.data.d.results;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   onBeforeGalacicSpaceFarerUpdate,
   onAfterGalacticSpaceFarerCreation,
+  onTriggerWorkflowAction
 };

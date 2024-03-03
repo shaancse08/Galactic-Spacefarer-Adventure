@@ -23,4 +23,5 @@ service GalacticAdminService @(requires: 'authenticated-user') {
     entity Department         as projection on spacefarer.Department;
     entity Position           as projection on spacefarer.Position;
     entity Planet             as projection on spacefarer.Planet;
+    action triggerOnBoardingProcess(data : GalacticSpacefarer) returns String;
 }

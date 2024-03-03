@@ -69,16 +69,20 @@ sap.ui.define(
        * for Data Post for new Spacefarer
        */
       onSubmitData: async function () {
+        const oGalactiPayload = JSON.parse(this.getView()
+        .getModel("localModel")
+        .getProperty("/createPayload"));
+        oGalactiPayload.ID = this.getUUID();
         // Getting the Payload for Create Operation
-        const oPayload = this.getView()
-            .getModel("localModel")
-            .getProperty("/createPayload"),
+        const oPayload = {
+          data: oGalactiPayload
+        },
           // Model Object Preparation
           oModel = this.getView().getModel(),
           // Path Build
-          sPath = "/GalacticSpacefarer";
+          sPath = "/triggerOnBoardingProcess";
 
-          // Closing the Dialog and Refresh the Model
+        // Closing the Dialog and Refresh the Model
         this.oCreateDialog.close();
         this.initialSetUp();
 

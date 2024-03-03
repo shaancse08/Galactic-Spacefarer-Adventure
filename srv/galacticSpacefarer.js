@@ -1,6 +1,6 @@
 const cds = require("@sap/cds");
 const {
-  onBeforeGalacicSpaceFarerUpdate, onAfterGalacticSpaceFarerCreation
+  onBeforeGalacicSpaceFarerUpdate, onAfterGalacticSpaceFarerCreation, onTriggerWorkflowAction
 } = require("./src/controllers/galacticSpacefarerOperations");
 
 module.exports = cds.service.impl(async (srv) => {
@@ -13,4 +13,5 @@ module.exports = cds.service.impl(async (srv) => {
  * After Creating Success message to the Spacefarer
  */
   srv.after("CREATE", "GalacticSpacefarer", onAfterGalacticSpaceFarerCreation);
+  srv.on("triggerOnBoardingProcess", onTriggerWorkflowAction)
 });
