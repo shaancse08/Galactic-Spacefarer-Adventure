@@ -10,6 +10,7 @@ modules:
     requires:
       - name: Galactic-Spacefarer-Adventure-db
       - name: Galactic-Spacefarer-Adventure-auth
+      - name: Galactic-Spacefarer-Adventure-destination-service
     provides:
       - name: srv-api
         properties:

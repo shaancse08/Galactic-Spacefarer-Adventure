@@ -6,13 +6,15 @@ const { sendMail, MailConfig } = require("@sap-cloud-sdk/mail-client");
  * Skill which is maximum of 5 and 800 points of StarDustCollections
  * @param {*} req Will be provided by the Framework
  */
-const onBeforeGalacicSpaceFarerUpdate = (req) => {
+const onBeforeGalacicSpaceFarerUpdate = async (req) => {
   // Getting teh Event as this method for both Create and Update
   const sEvent = req.event;
   // Getting the Relevent Data from the Request
   const { stardustCollection, wormholeNavigationSkill, originPlanet_ID } =
       req.data,
+
     aEligiblePlanets = ["fdc3e7d9-73a0-4f9c-a508-481b6e579fd6", "e794898c-f49e-4ae0-b247-28ad57528cc5"];
+
   // If Stardust collection is less than 100 then not eligible
   if (stardustCollection < 100 && sEvent === "CREATE") {
     req.error({
@@ -51,6 +53,7 @@ const onBeforeGalacicSpaceFarerUpdate = (req) => {
  * @param {*} req Will be supplied by Framework, which has all the Request Data
  */
 const onAfterGalacticSpaceFarerCreation = (req) => {
+  console.log("After Event");
   // Getting teh email_id
   const { email } = req;
   // Preparing the mail configuration

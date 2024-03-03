@@ -47,6 +47,26 @@ annotate GalacticService.GalacticSpacefarer with {
 };
 
 
+annotate GalacticAdminService.GalacticSpacefarer with @(Capabilities: {
+    ReadRestrictions : {
+        $Type : 'Capabilities.ReadRestrictionsType',
+        Readable: true
+    },
+    UpdateRestrictions : {
+        $Type : 'Capabilities.UpdateRestrictionsType',
+        Updatable: true
+    },
+    DeleteRestrictions : {
+        $Type : 'Capabilities.DeleteRestrictionsType',
+        Deletable: true
+    },
+    InsertRestrictions : {
+        $Type : 'Capabilities.InsertRestrictionsType',
+        Insertable: true
+    },
+});
+
+
 annotate GalacticAdminService.GalacticSpacefarer with @(restrict: [{
     grant: '*',
     to   : 'Admin'
