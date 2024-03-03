@@ -16,7 +16,7 @@ entity GalacticSpacefarer : cuid {
   spacefarerNickName       : String(100) @Core.Immutable;
   email                    : types.email @Core.Immutable;
   stardustCollection       : Integer;
-  stardustCollectionStatus : String(2)      @readonly;
+  stardustCollectionStatus : String(2) @Core.Immutable;
   wormholeNavigationSkill  : Integer;
   originPlanet             : Association to Planet;
   spacesuitColor           : String(20)      @Core.Immutable;
