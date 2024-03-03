@@ -9,8 +9,8 @@ module.exports = cds.service.impl(async (srv) => {
    */
   // srv.before(["CREATE", "UPDATE"], "GalacticSpacefarer", onBeforeGalacicSpaceFarerUpdate);
 
-    /**
-   * After Creating Success message to the Spacefarer
-   */
-    srv.after("CREATE", "GalacticSpacefarer", onAfterGalacticSpaceFarerCreation);
+  /**
+ * After Creating Success message to the Spacefarer
+ */
+  srv.after("CREATE", "GalacticSpacefarer", onAfterGalacticSpaceFarerCreation);
 });

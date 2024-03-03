@@ -11,7 +11,7 @@ const onBeforeGalacicSpaceFarerUpdate = async (req) => {
   const sEvent = req.event;
   // Getting the Relevent Data from the Request
   const { stardustCollection, wormholeNavigationSkill, originPlanet_ID } =
-      req.data,
+    req.data,
 
     aEligiblePlanets = ["fdc3e7d9-73a0-4f9c-a508-481b6e579fd6", "e794898c-f49e-4ae0-b247-28ad57528cc5"];
 
