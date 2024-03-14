@@ -21,7 +21,7 @@ entity GalacticSpacefarer : cuid {
   originPlanet             : Association to Planet;
   spacesuitColor           : String(20)      @Core.Immutable;
   imageUrl                 : String;
-  department               : Composition of Department;
+  department               : Association to Department;
   position                 : Association to Position;
 }
 
